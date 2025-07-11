@@ -14,8 +14,11 @@ function ProductProvider({children}){
       try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data.data.data);
-        setProducts(data.data.data);
+        const newData = data.data.data.map(dat=>(
+          {...dat, quantity: 1, selected: false}
+        ))
+        // console.log(newData);
+        setProducts(newData);
       } catch (error) {
         console.error(error);
       }
@@ -24,7 +27,7 @@ function ProductProvider({children}){
   },[])
 
   return (
-    <ProductContext.Provider value={products}>
+    <ProductContext.Provider value={{products, setProducts}}>
       {children}
     </ProductContext.Provider>
   )
