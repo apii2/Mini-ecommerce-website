@@ -5,8 +5,6 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { useContext } from "react"
-import ProductThumbnail from '@/asset/images/download.jpeg'
-import Image from "next/image"
 import Link from "next/link"
 import { CartContext } from "@/context/cart"
 import { useCartQuantityHandlers } from '@/methods/quantity';
@@ -37,7 +35,7 @@ export default function page() {
       ) : 
       (cartData.map(item => (
         <Card key={item.id} className="flex flex-col md:flex-row gap-4 p-4">
-          <Image src={ProductThumbnail} alt={`${item.title} image`} className="w-24 h-24 object-cover rounded-md"/>
+          <img src={item.thumbnail} alt={`${item.title} image`} className="w-24 h-24 object-cover rounded-md"/>
 
           <div className="flex-1 flex flex-col justify-between">
             <div>

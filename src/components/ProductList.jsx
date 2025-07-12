@@ -10,8 +10,6 @@ import {
 } from "@/components/ui/card"
 import { ProductContext } from "@/context/product"
 import { useContext } from "react"
-import ProductThumbnail from '@/asset/images/download.jpeg'
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "./ui/button"
 
@@ -24,7 +22,7 @@ export default function ProductList() {
         <Card key={item.id}>
           <Link href={`/product/${item.id}`}>
             <CardContent>
-              <Image src={ProductThumbnail} alt={item.title+'image'} className="w-full aspect-square object-cover rounded-xl mb-4" />
+              <img src={item.thumbnail} alt={item.title+'image'} className="w-full aspect-square object-cover rounded-xl mb-4" />
               <CardTitle className="truncate max-w-[200px] sm:max-w-[250px] md:max-w-[300px] lg:max-w-[400px] mb-2">
                 {item.title}
               </CardTitle>

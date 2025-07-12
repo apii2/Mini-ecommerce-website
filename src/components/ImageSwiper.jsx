@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Image from 'next/image';
 
 export default function ImageSwiper({images}) {
   return (
@@ -14,7 +13,7 @@ export default function ImageSwiper({images}) {
     >
       {images.map((img, index)=>(
         <SwiperSlide key={index}>
-          <Image src={img} alt="slide image" className='w-full aspect-[3/3.5] object-cover' />
+          <img src={img} alt="slide image" className='w-full aspect-[3/3.5] object-cover' />
         </SwiperSlide>
       ))}
     </Swiper>

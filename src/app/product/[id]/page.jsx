@@ -4,9 +4,6 @@ import { ProductContext } from '@/context/product';
 import { useParams } from 'next/navigation';
 import { useContext } from 'react';
 import { Button } from "@/components/ui/button"
-import ProductImage from '@/asset/images/download.jpeg';
-import ProductImage2 from '@/asset/images/lilo.jpg';
-import ProductImage3 from '@/asset/images/react.png';
 import { CartContext } from '@/context/cart';
 import { useCartQuantityHandlers } from '@/methods/quantity';
 import ImageSwiper from '@/components/ImageSwiper';
@@ -21,8 +18,6 @@ export default function ProductPage() {
   const product = products.find(p => p.id.toString() === id);
 
   if (!product) return <p>Product not found</p>;
-
-  const images = [ProductImage, ProductImage2, ProductImage3];
 
   async function handleCart(){      
     const {default: Swal} = await import('sweetalert2');
@@ -49,7 +44,7 @@ export default function ProductPage() {
   
   return (
     <div className="grid grid-cols-[40%_1fr] gap-8">
-      <ImageSwiper images={images} />
+      <ImageSwiper images={product.images} />
 
       <div className="flex flex-col justify-center gap-4 p-4 max-w-xl mx-auto">
         <h1 className="text-3xl font-bold text-gray-900">{product.title}</h1>

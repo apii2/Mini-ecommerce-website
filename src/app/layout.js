@@ -2,14 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProviderLayout from "@/components/ProviderLayout";
 import CartLayout from "@/components/CartLayout";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu"
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,42 +19,11 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const navList = [
-    {
-      id: 1,
-      name: 'Home',
-      url: '/'
-    },
-    {
-      id: 2,
-      name: 'Cart',
-      url: '/cart'
-    }
-  ];
-
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased px-6 md:px-20 xl:px-30`}
       >
-        <section className='flex justify-around items-center mb-6'>
-          <NavigationMenu>
-            <NavigationMenuList>
-              {navList.map(item=>(
-                <NavigationMenuItem key={item.id}>
-                  <NavigationMenuLink asChild>
-                    <Link href={item.url}>{item.name}</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-
-          <Button asChild>
-            <Link href="/admin/login">Login</Link>
-          </Button>
-        </section>
-
         <ProviderLayout>
           <CartLayout>
             {children}

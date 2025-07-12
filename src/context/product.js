@@ -17,7 +17,7 @@ function ProductProvider({children}){
         const newData = data.data.data.map(dat=>(
           {...dat, quantity: 1, selected: false}
         ))
-        // console.log(newData);
+        console.log(newData);
         setProducts(newData);
       } catch (error) {
         console.error(error);
